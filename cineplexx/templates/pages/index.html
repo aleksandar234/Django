@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load crispy_forms_tags %}
 {% if user.is_authenticated %}
     <div class="card text-center">
         <div class="card-body">
@@ -13,7 +14,7 @@
     {% if user.is_superuser %}
         <form method="post">
             {% csrf_token %}
-            {{ form }}
+            {{ form|crispy }}
             <button type="submit">AddQuestion</button>
         </form>
     {% endif %}
