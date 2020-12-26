@@ -11,8 +11,13 @@
         </div>
     </div>
     {% if user.is_superuser %}
-        {{ form }}
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">AddQuestion</button>
+        </form>
     {% endif %}
+
 {% else %}
     <h1>You are not Signed in. Please LogIn or Register on top right corner to have an access to the page.</h1>
 {% endif %}

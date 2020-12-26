@@ -5,6 +5,7 @@ admin.site.site_header = "Cineplexx"
 admin.site.site_title = "Cineplexx Usce"
 admin.site.index_title = "Welcome to Cineplexx"
 
+
 class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 3

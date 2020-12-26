@@ -1,16 +1,14 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-from .forms import QuestionForm
 
 from .models import Question, Choice
 
 # Get question and display
 def index(request):
-    form = QuestionForm()
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list, 'form': form}
-    return render(request, 'pages/index.html', context)
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'movies/index.html', context)
 
 def detail(request,question_id):
     try:

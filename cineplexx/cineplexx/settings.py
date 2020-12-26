@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '+qv)k8@@98jfyg%lj@gi5x1hz7hc6o#9__54ezr!6v@g+lrwpw'
 
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -34,6 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'movies.apps.MoviesConfig',
     'users.apps.UsersConfig',
+    'pages.apps.PagesConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
