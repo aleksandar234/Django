@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import SnippetForm
+from cineplexx.movies.forms import SnippetForm
 
 
 def snippet_detail(request):

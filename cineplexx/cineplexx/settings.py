@@ -35,7 +35,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'movies.apps.MoviesConfig',
     'users.apps.UsersConfig',
-    'pages.apps.PagesConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -130,5 +129,5 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/movies'
 LOGIN_URL = 'login'

@@ -1,12 +1,14 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from .forms import SnippetForm
+
 
 from .models import Question, Choice
 
 # Get question and display
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    latest_question_list = Question.objects.all()
     context = {'latest_question_list': latest_question_list}
     return render(request, 'movies/index.html', context)
 
@@ -39,3 +41,19 @@ def vote(request,question_id):
         return HttpResponseRedirect(reverse('movies:results', args=(question.id,)))
 
 
+def snippet_detail(request):
+    if request.method == 'POST':
+        form = SnippetForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            question = Question(question_text=form.cleaned_data['question'])
+            question.save()
+            choice1 = Choice(question=question, choice_text=form.cleaned_data['choice1'])
+            choice1.save()
+            choice2 = Choice(question=question, choice_text=form.cleaned_data['choice2'])
+            choice2.save()
+            choice3 = Choice(question=question, choice_text=form.cleaned_data['choice3'])
+            choice3.save()
+
+    form = SnippetForm()
+    return render(request, 'pages/index.html', {'form': form})

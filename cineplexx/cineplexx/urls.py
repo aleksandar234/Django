@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     # Sta treba se desi jeste da kad hitujemo /movies bilo sta ,onda ce da pogleda u movies.urls file
     # Pa idemo na movies.urls file
-    path('', include('pages.urls')),
     path('', include('users.urls')),
     path('movies/', include('movies.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
